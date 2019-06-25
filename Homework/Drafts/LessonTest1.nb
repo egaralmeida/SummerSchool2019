@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[      1662,         57]
-NotebookOptionsPosition[      1152,         40]
-NotebookOutlinePosition[      1496,         55]
-CellTagsIndexPosition[      1453,         52]
+NotebookDataLength[      7439,        193]
+NotebookOptionsPosition[      5504,        156]
+NotebookOutlinePosition[      5848,        171]
+CellTagsIndexPosition[      5805,        168]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,17 +25,133 @@ Cell["Pulse Width Modulation in Layman\[CloseCurlyQuote]s Terms", "Title",
   3.7704593684339585`*^9}},ExpressionUUID->"b3d0dd5b-f94d-49e2-9e2a-\
 0f5ac5a2e26c"],
 
-Cell["\<\
-...or how to simulate an analog output using a digital signal\
-\>", "Subtitle",
- CellChangeTimes->{{3.770459372514778*^9, 
-  3.7704594538672905`*^9}},ExpressionUUID->"082c908e-96b3-4fd8-9d6b-\
+Cell["...or how to emulate an analog output using a digital signal", \
+"Subtitle",
+ CellChangeTimes->{{3.770459372514778*^9, 3.7704594538672905`*^9}, {
+  3.7704606098095245`*^9, 
+  3.770460624499613*^9}},ExpressionUUID->"082c908e-96b3-4fd8-9d6b-\
 562f8f33b455"],
 
-Cell[BoxData["s"], "Input",
+Cell[CellGroupData[{
+
+Cell["References", "Section",
+ CellChangeTimes->{{3.7704600610486345`*^9, 
+  3.7704600650626783`*^9}},ExpressionUUID->"4ccb8d61-9fc9-4505-9ee3-\
+e1caadea6476"],
+
+Cell["https : // www.arduino.cc/en/Tutorial/PWM", "Text",
+ CellChangeTimes->{{3.770460070694105*^9, 3.770460070696829*^9}, {
+  3.7704602330673704`*^9, 3.7704602639149246`*^9}, {3.7704602963132534`*^9, 
+  3.77046029631433*^9}, {3.770463348135479*^9, 3.770463350540267*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"d2567918-46d8-40b0-9e29-a85effeafa22"],
+
+Cell["\<\
+Syntax::sntxf: \"https : \" cannot be followed by \"// \
+www.arduino.cc/en/Tutorial/PWM\".\
+\>", "Message", "MSG",
+ CellChangeTimes->{3.770461164272557*^9},
+ CellLabel->
+  "During evaluation of \
+In[18]:=",ExpressionUUID->"ec02ac7c-4191-4f07-a4ee-07c1cc4fe467"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"www", ".", "arduino", ".", "cc"}], 
+  RowBox[{"en", " ", "PWM", " ", "Tutorial"}]]], "Input",
+ CellChangeTimes->{{3.770463383883397*^9, 
+  3.7704633838968353`*^9}},ExpressionUUID->"e8a628b7-5ecd-4aa6-8595-\
+6317e9b770ac"],
+
+Cell["https://www.youtube.com/watch?v=YmPziPfaByw", "Text",
+ CellChangeTimes->{{3.770460070694105*^9, 3.770460070696829*^9}, {
+   3.7704602330673704`*^9, 3.7704602639149246`*^9}, 3.7704602966062374`*^9, {
+   3.7704603621068845`*^9, 3.770460362107884*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"3ac60cb3-90de-46ed-8241-5ccafa5014cb"],
+
+Cell["\<\
+Syntax::sntxf: \"https:\" cannot be followed by \
+\"//www.youtube.com/watch?v=YmPziPfaByw\".\
+\>", "Message", "MSG",
+ CellChangeTimes->{3.770461178344886*^9},
+ CellLabel->
+  "During evaluation of \
+In[19]:=",ExpressionUUID->"8f17ccbe-86d6-4423-9baa-fbb45ac1872e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set","write",
+   "\"Tag \\!\\(\\*RowBox[{\\\"Times\\\"}]\\) in \
+\\!\\(\\*FractionBox[RowBox[{\\\"www\\\", \\\".\\\", \\\"youtube\\\", \\\".\\\
+\", \\\"com\\\"}], RowBox[{\\\"watch\\\", \\\"?\\\", \\\"v\\\"}]]\\) is \
+Protected.\"",2,19,6,29662074541647207655,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{{3.7704611783608885`*^9, 
+  3.770461207101791*^9}},ExpressionUUID->"07c69b2a-f36c-4b72-865a-\
+fb6d1ab77336"],
+
+Cell[BoxData["YmPziPfaByw"], "Output",
+ CellChangeTimes->{3.770461178469475*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"79e12887-74ce-4e28-af89-da2da917b0cd"],
+
+Cell[TextData[StyleBox["https://learn.sparkfun.com/tutorials/pulse-width-\
+modulation/all", "Text"]], "Text",
+ CellChangeTimes->{{3.770460070694105*^9, 3.770460070696829*^9}, {
+  3.7704602330673704`*^9, 3.7704602613399167`*^9}, {3.770460380124797*^9, 
+  3.77046038325889*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"8aba2944-18d1-4335-9512-f5fd992c4162"],
+
+Cell["\<\
+Syntax::sntxf: \"https:\" cannot be followed by \
+\"//learn.sparkfun.com/tutorials/pulse-width-modulation/all\".\
+\>", "Message", "MSG",
+ CellChangeTimes->{3.770461179580352*^9},
+ CellLabel->
+  "During evaluation of \
+In[20]:=",ExpressionUUID->"fcbf654c-4e76-4b64-9b8a-d8003a78d227"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.770461195465646*^9, 
+  3.7704611954967184`*^9}},ExpressionUUID->"9916c4d3-1343-4dcc-a022-\
+18ded7b8caff"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Why do I need this?", "Section",
+ CellChangeTimes->{{3.770460497589246*^9, 
+  3.7704605033639345`*^9}},ExpressionUUID->"589f766c-cfd7-4aa1-b70b-\
+735eb32db5fa"],
+
+Cell["\<\
+Good question, as usual. Say you want to modify the speed of a motor or the \
+brightness of a LED. (...)\
+\>", "Text",
+ CellChangeTimes->{{3.7704605113313513`*^9, 
+  3.77046056642531*^9}},ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-\
+61cdbd5276bc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Let\[CloseCurlyQuote]s learn", "Section",
+ CellChangeTimes->{{3.770460397250027*^9, 
+  3.77046040329173*^9}},ExpressionUUID->"a0c9bc8b-31c1-4edc-86fd-\
+334168606fe4"],
+
+Cell["\<\
+Welcome back, Overlord. So, so far you\[CloseCurlyQuote]ve learned about the \
+digital input and outputs of an Arduino (or a plain, organic, 100% fat free \
+microcontroller). You know how to get data into the Arduino and out of it, \
+but only in 0\[CloseCurlyQuote]s and 1\[CloseCurlyQuote]s. \
+\>", "Text",
  CellChangeTimes->{
-  3.770459493977346*^9},ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-\
+  3.770459493977346*^9, {3.7704596416075745`*^9, 3.770459729871831*^9}, {
+   3.7704599189971075`*^9, 3.770459982217415*^9}, {3.7704604156885233`*^9, 
+   3.770460442214279*^9}},ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-\
 cb8b15f05d66"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1920, 997},
@@ -56,8 +172,28 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[583, 22, 201, 3, 96, "Title",ExpressionUUID->"b3d0dd5b-f94d-49e2-9e2a-0f5ac5a2e26c"],
-Cell[787, 27, 217, 5, 53, "Subtitle",ExpressionUUID->"082c908e-96b3-4fd8-9d6b-562f8f33b455"],
-Cell[1007, 34, 129, 3, 28, "Input",ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-cb8b15f05d66"]
+Cell[787, 27, 261, 5, 53, "Subtitle",ExpressionUUID->"082c908e-96b3-4fd8-9d6b-562f8f33b455"],
+Cell[CellGroupData[{
+Cell[1073, 36, 159, 3, 67, "Section",ExpressionUUID->"4ccb8d61-9fc9-4505-9ee3-e1caadea6476"],
+Cell[1235, 41, 351, 4, 34, "Text",ExpressionUUID->"d2567918-46d8-40b0-9e29-a85effeafa22"],
+Cell[1589, 47, 271, 7, 21, "Message",ExpressionUUID->"ec02ac7c-4191-4f07-a4ee-07c1cc4fe467"],
+Cell[1863, 56, 260, 6, 47, InheritFromParent,ExpressionUUID->"e8a628b7-5ecd-4aa6-8595-6317e9b770ac"],
+Cell[2126, 64, 334, 4, 34, "Text",ExpressionUUID->"3ac60cb3-90de-46ed-8241-5ccafa5014cb"],
+Cell[2463, 70, 273, 7, 21, "Message",ExpressionUUID->"8f17ccbe-86d6-4423-9baa-fbb45ac1872e"],
+Cell[2739, 79, 520, 12, 40, "Message",ExpressionUUID->"07c69b2a-f36c-4b72-865a-fb6d1ab77336"],
+Cell[3262, 93, 159, 2, 32, "Output",ExpressionUUID->"79e12887-74ce-4e28-af89-da2da917b0cd"],
+Cell[3424, 97, 355, 5, 34, "Text",ExpressionUUID->"8aba2944-18d1-4335-9512-f5fd992c4162"],
+Cell[3782, 104, 293, 7, 21, "Message",ExpressionUUID->"fcbf654c-4e76-4b64-9b8a-d8003a78d227"],
+Cell[4078, 113, 154, 3, 28, InheritFromParent,ExpressionUUID->"9916c4d3-1343-4dcc-a022-18ded7b8caff"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4269, 121, 166, 3, 67, "Section",ExpressionUUID->"589f766c-cfd7-4aa1-b70b-735eb32db5fa"],
+Cell[4438, 126, 255, 6, 34, "Text",ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-61cdbd5276bc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4730, 137, 172, 3, 67, "Section",ExpressionUUID->"a0c9bc8b-31c1-4edc-86fd-334168606fe4"],
+Cell[4905, 142, 571, 10, 34, "Text",ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-cb8b15f05d66"]
+}, Open  ]]
 }, Open  ]]
 }
 ]
