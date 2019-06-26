@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[      5436,        151]
-NotebookOptionsPosition[      4144,        119]
-NotebookOutlinePosition[      4488,        134]
-CellTagsIndexPosition[      4445,        131]
+NotebookDataLength[     13084,        329]
+NotebookOptionsPosition[     11178,        287]
+NotebookOutlinePosition[     11551,        303]
+CellTagsIndexPosition[     11508,        300]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -83,16 +83,19 @@ Cell["Why do I need this?", "Section",
 735eb32db5fa"],
 
 Cell["\<\
-Good question. Say you want to modify the speed of a motor or the brightness \
-of a LED. You\[CloseCurlyQuote]ve learned already how a DC motor\
-\[CloseCurlyQuote]s speed can be changed by modifying the voltage applied to \
-it, or how a resistor of a particular value makes the current that flows \
-through the LEDs bigger or smaller, thus changing its brightness. But the \
-Arduino\
+Say you want to modify the speed of a motor or the brightness of an LED. One \
+way to do it would be to modify the voltage applied to it: Less voltage would \
+mean less speed for the motor, and less brightness for the LED since less \
+current flows through it. But most Arduino boards don\[CloseCurlyQuote]t have \
+a way to output varying voltages, they lack a circuit called \
+\[OpenCurlyDoubleQuote]DAC\[CloseCurlyDoubleQuote] (digital to analog \
+converter). This is where Pulse Width Modulation (PWM) kicks in. \
 \>", "Text",
  CellChangeTimes->{{3.7704605113313513`*^9, 3.77046056642531*^9}, {
-  3.7704709912832394`*^9, 
-  3.7704711201550803`*^9}},ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-\
+   3.7704709912832394`*^9, 3.7704711201550803`*^9}, 3.7704963622687116`*^9, {
+   3.770496459181628*^9, 3.7704965594946194`*^9}, {3.7704965961959214`*^9, 
+   3.770496809989354*^9}, {3.770496841698743*^9, 
+   3.770496851990444*^9}},ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-\
 61cdbd5276bc"]
 }, Open  ]],
 
@@ -104,21 +107,187 @@ Cell["Let\[CloseCurlyQuote]s learn", "Section",
 334168606fe4"],
 
 Cell["\<\
-Welcome back, Overlord. So, so far you\[CloseCurlyQuote]ve learned about the \
-digital input and outputs of an Arduino (or a plain, organic, 100% fat free \
-microcontroller). You know how to get data into the Arduino and out of it, \
-but only in 0\[CloseCurlyQuote]s and 1\[CloseCurlyQuote]s. \
+So far you\[CloseCurlyQuote]ve learned about the digital input and outputs of \
+an Arduino (or maybe a plain, organic, 100% fat-free microcontroller). You \
+know how to get data into the Arduino and out of it, but only in ones and \
+zeroes. This is great, since we only need ones and zeroes for PWM. \
 \>", "Text",
  CellChangeTimes->{
   3.770459493977346*^9, {3.7704596416075745`*^9, 3.770459729871831*^9}, {
    3.7704599189971075`*^9, 3.770459982217415*^9}, {3.7704604156885233`*^9, 
-   3.770460442214279*^9}},ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-\
-cb8b15f05d66"]
+   3.770460442214279*^9}, {3.77049685722427*^9, 3.7704968723508596`*^9}, {
+   3.7704969128950205`*^9, 3.770497004928018*^9}, {3.7704971168160357`*^9, 
+   3.7704971803336086`*^9}},ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-\
+cb8b15f05d66"],
+
+Cell[CellGroupData[{
+
+Cell["Square Wave", "Subsection",
+ CellChangeTimes->{{3.77049720034879*^9, 
+  3.770497202760765*^9}},ExpressionUUID->"7a9c7cf7-218a-4cd1-a848-\
+74d64ee21e99"],
+
+Cell[TextData[{
+ "To understand PWM better, we are first going to see it as a ",
+ Cell[BoxData[
+  TagBox[
+   TooltipBox["\<\"waveform\"\>",
+    "\"a way to see data over time\"",
+    TooltipStyle->"TextStyling"],
+   Annotation[#, "a way to see data over time", "Tooltip"]& ]], "Output",
+  CellChangeTimes->{{3.7704990602822046`*^9, 3.7704990681455307`*^9}},
+  ExpressionUUID->"99f0eb1d-3577-4401-88c1-a648f11203dc"],
+ ". Flip the light switch below on an off and see what happens.\n\n{Insert \
+here a thingy that draws a squarewave according to the student\
+\[CloseCurlyQuote]s input on the light switch}\n\nAs you can see, "
+}], "Text",
+ CellChangeTimes->{{3.770497211540576*^9, 3.770497491553379*^9}, {
+   3.770497609391491*^9, 3.770497658185897*^9}, {3.7704977244117465`*^9, 
+   3.770497787529062*^9}, {3.7704978189035263`*^9, 3.7704978233298025`*^9}, 
+   3.7704980605798173`*^9, {3.7704981181054945`*^9, 3.7704981231849504`*^9}, {
+   3.7704985409757037`*^9, 3.7704986168578806`*^9}, {3.7704988574541297`*^9, 
+   3.770498860664713*^9}, {3.770499016240735*^9, 3.7704990228337336`*^9}, {
+   3.770499080654738*^9, 
+   3.770499085247835*^9}},ExpressionUUID->"43e7b661-1581-46ae-8ddb-\
+44a3e98be555"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"history", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"startTime", "=", 
+    RowBox[{"UnixTime", "[", "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"switchHistory", "[", "time_", "]"}], ":=", 
+   RowBox[{"1", "/;", 
+    RowBox[{"EvenQ", "[", 
+     RowBox[{"Length", "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{"history", ",", 
+        RowBox[{
+         RowBox[{"#", "<", "time"}], "&"}]}], "]"}], "]"}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"switchHistory", "[", "time_", "]"}], ":=", 
+    RowBox[{"0", "/;", 
+     RowBox[{"OddQ", "[", 
+      RowBox[{"Length", "[", 
+       RowBox[{"Select", "[", 
+        RowBox[{"history", ",", 
+         RowBox[{
+          RowBox[{"#", "<", "time"}], "&"}]}], "]"}], "]"}], "]"}]}]}], ";"}],
+   "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Button", "[", 
+   RowBox[{"\"\<Switch\>\"", ",", 
+    RowBox[{"history", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"history", ",", 
+       RowBox[{
+        RowBox[{"UnixTime", "[", "]"}], "-", "startTime"}]}], "]"}]}]}], 
+   "]"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Dynamic", "[", 
+  RowBox[{
+   RowBox[{"Refresh", "[", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"switchHistory", "[", "time", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"time", ",", 
+        RowBox[{"Max", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"UnixTime", "[", "]"}], "-", "startTime", "-", "10"}]}], 
+         "]"}], ",", 
+        RowBox[{
+         RowBox[{"UnixTime", "[", "]"}], "-", "startTime"}]}], "}"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Max", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{
+              RowBox[{"UnixTime", "[", "]"}], "-", "startTime", "-", "10"}]}],
+             "]"}], ",", 
+           RowBox[{
+            RowBox[{"UnixTime", "[", "]"}], "-", "startTime", "+", "1"}]}], 
+          "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], "]"}], ",", 
+   RowBox[{"UpdateInterval", "\[Rule]", "0.1"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7705042092852106`*^9, 3.770504209292743*^9}, {
+  3.7705045716512814`*^9, 3.7705046324973073`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"4572bf9c-3dfa-407d-8101-5e171c7c8b81"],
+
+Cell[BoxData[
+ ButtonBox["\<\"Switch\"\>",
+  Appearance->Automatic,
+  ButtonFunction:>($CellContext`history = 
+   Append[$CellContext`history, UnixTime[] - $CellContext`startTime]),
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ CellChangeTimes->{3.7705042224045467`*^9, 3.770504597772732*^9, 
+  3.770504633516655*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"59fa420d-90b5-408d-b20f-7284ab8c1b14"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Refresh[
+    Plot[
+     $CellContext`switchHistory[$CellContext`time], {$CellContext`time, 
+      Max[0, UnixTime[] - $CellContext`startTime - 10], 
+      UnixTime[] - $CellContext`startTime}, PlotRange -> {{
+        Max[0, UnixTime[] - $CellContext`startTime - 10], 
+        UnixTime[] - $CellContext`startTime + 1}, {0, 1}}]], StandardForm],
+  ImageSizeCache->{468., {148., 156.}},
+  UpdateInterval->0.1]], "Output",
+ CellChangeTimes->{3.7705042224045467`*^9, 3.770504597772732*^9, 
+  3.770504633523581*^9},
+ CellLabel->"Out[19]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztW71uFDEQ9mXvL0FJlBSIMgWBlpqOXHJXhXc4RURJgUAhL3AVT3EFz4CU
+AiEKQkF3DXR0FHmMxfZ41/bseHa9R8gR+aS7rMfjz7Of7Rn/5Xh6efbq9fTy
+/GS6N7mYvj07P3m3N35zIUVZR4jOD/l99kjI51wI+KrPT/mFxyZP2+q3l99c
+zU7hM7u6ycUaSPPF3EjnCyk4UtIB0s21lujJpMiUmv6IAxK3q6SZllrEYO1W
+LJV5XSQ9BGlpvjY08Fb7moct9bsJdcJraUjzQqqEfoQHwN+gtQvZBNiidCQF
+Pg8ab4up3TKthSNOnxDq1uhXkYAR/HYOI1uljb4lFqhU0DY9COg77z5WekNK
+T1WP+9ELxgpPaBKjpvpGOIaWtFnEmz2u5YMSjuxowVnQEzPNiU4fQe+jdOUf
+I8K9hbTEMX9ZTlgdjxPdcahxEOCE0jdjwqYPgRMSWwqtyBtBlLYe706/Ly0J
+6FPCkW0hcCgLUzPZvsDOdm59iuMuA2WMz/K1lcCwAmlaC8axlKmk713Xifp1
+lfIFxBoabSMGHUtdBq3jOQ2S4vcYR6PsslyPIfSLaFJYIEYO3xXXCfjzhd9j
+NnhLJoy1lPAgcqTVe5agp40d/5wn6urkDLINL6w1k8j35Hip8biblR7GxeRq
+f7Qj2imHfRHSN75I+42Kd6Etsf0GexfGFio+ez2Qi8/8zK0U18+zrJSZZ7Wd
+uUlxm5lbKaU9kDtzU0TiWa3iMkcTPY2x7o0PNBNUkm+2PKK9T7aFU2ZAdmVg
+LpCnEtdFaXJ8dpmxq/JyafwX+e20RoG+/vH6l0R5/+G72FU/GSTU4w5K1+XH
+pu8N3tfFb0XljuZTpoFmne4s1UJdApFL70bqJ7zbbqHnkRY9Qen9yPJ19b1E
+6afFm0d7MPzmGBmnjyP1jWWN/XEPlVc/ny0GCiGAgeNKGOPhf5tTZKySTfct
+J3GcOL6tnOCMtuuuo/Du2RqPh5wn+L1yESOG4dKBaGB3KyA94BDISNq3CGW6
+ZwA+sSUHqG4mEgQQhiWCu78Qj2B3JFgELtZSy3gOLdSa3vq2XF7WIdFREq0T
+U5RMOYnjxOQq5QSjZFY61MrZW82KAXnVYfPSAQ9v6i+MFN3mMZtbffarB0XK
+tmaxExCqxyrxMVSXqJxEtMXBe/bxbOvY5e1vt2lvuxMct75s3lvufuwkL7S6
+OYnjxORt5QRjZt8/K1FODJ8XZzwqtWPnoBbZrVdJ1AWQFqu2ujVXRAwdkJcN
+2tqUhU/qGeZ5xJLD+NW9c95etz/AtT46K221FkUnjCmuppzEcWJylXIa3kFA
+9x/iVifFHl+5Z+ncYfk7UTV0wumhtTovjYqq5I3BeJucVWVJeZvVaWFV+Fba
+P+Cd6Q/UnaYl93xreufdj7fkuVY3J3GcmFwuB+/a1t/mC/sqjAW+rvlNEnIH
+ueH9mFqUyCgQi+JH3ZjS6tncVVSE3SwWlZ3ihiV1TJnN517JmvuR5p6yaWMb
+ocL3MelWxnd9rL56Cv+flOj8AY8hKk0=\
+\>"],ExpressionUUID->"2180cf1c-0eac-46f5-90ba-95409523d6ea"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1920, 997},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowSize->{1904, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+Magnification:>1.3 Inherited,
 FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
 StyleDefinitions->"Default.nb"
 ]
@@ -134,23 +303,32 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[583, 22, 201, 3, 96, "Title",ExpressionUUID->"b3d0dd5b-f94d-49e2-9e2a-0f5ac5a2e26c"],
-Cell[787, 27, 261, 5, 53, "Subtitle",ExpressionUUID->"082c908e-96b3-4fd8-9d6b-562f8f33b455"],
+Cell[583, 22, 201, 3, 126, "Title",ExpressionUUID->"b3d0dd5b-f94d-49e2-9e2a-0f5ac5a2e26c"],
+Cell[787, 27, 261, 5, 68, "Subtitle",ExpressionUUID->"082c908e-96b3-4fd8-9d6b-562f8f33b455"],
 Cell[CellGroupData[{
-Cell[1073, 36, 159, 3, 67, "Section",ExpressionUUID->"4ccb8d61-9fc9-4505-9ee3-e1caadea6476"],
+Cell[1073, 36, 159, 3, 84, "Section",ExpressionUUID->"4ccb8d61-9fc9-4505-9ee3-e1caadea6476"],
 Cell[CellGroupData[{
-Cell[1257, 43, 370, 7, 31, "Item",ExpressionUUID->"628de33f-af67-4b00-9c5b-085ea2b4d443"],
-Cell[1630, 52, 404, 8, 31, "Item",ExpressionUUID->"ad56abd4-4ac7-462d-887e-131304b739b9"],
-Cell[2037, 62, 492, 11, 31, "Item",ExpressionUUID->"8eca3af0-971d-4edb-bb7f-2f01ebcc789a"]
+Cell[1257, 43, 370, 7, 40, "Item",ExpressionUUID->"628de33f-af67-4b00-9c5b-085ea2b4d443"],
+Cell[1630, 52, 404, 8, 40, "Item",ExpressionUUID->"ad56abd4-4ac7-462d-887e-131304b739b9"],
+Cell[2037, 62, 492, 11, 40, "Item",ExpressionUUID->"8eca3af0-971d-4edb-bb7f-2f01ebcc789a"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2578, 79, 166, 3, 67, "Section",ExpressionUUID->"589f766c-cfd7-4aa1-b70b-735eb32db5fa"],
-Cell[2747, 84, 586, 11, 56, "Text",ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-61cdbd5276bc"]
+Cell[2578, 79, 166, 3, 84, "Section",ExpressionUUID->"589f766c-cfd7-4aa1-b70b-735eb32db5fa"],
+Cell[2747, 84, 895, 14, 102, "Text",ExpressionUUID->"8617a59e-cd77-4fc2-a7e3-61cdbd5276bc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3370, 100, 172, 3, 67, "Section",ExpressionUUID->"a0c9bc8b-31c1-4edc-86fd-334168606fe4"],
-Cell[3545, 105, 571, 10, 34, "Text",ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-cb8b15f05d66"]
+Cell[3679, 103, 172, 3, 84, "Section",ExpressionUUID->"a0c9bc8b-31c1-4edc-86fd-334168606fe4"],
+Cell[3854, 108, 731, 12, 73, "Text",ExpressionUUID->"ba6e4614-b3c2-4b98-9c46-cb8b15f05d66"],
+Cell[CellGroupData[{
+Cell[4610, 124, 158, 3, 69, "Subsection",ExpressionUUID->"7a9c7cf7-218a-4cd1-a848-74d64ee21e99"],
+Cell[4771, 129, 1198, 22, 160, "Text",ExpressionUUID->"43e7b661-1581-46ae-8ddb-44a3e98be555"],
+Cell[CellGroupData[{
+Cell[5994, 155, 2475, 73, 263, "Input",ExpressionUUID->"4572bf9c-3dfa-407d-8101-5e171c7c8b81"],
+Cell[8472, 230, 411, 9, 58, "Output",ExpressionUUID->"59fa420d-90b5-408d-b20f-7284ab8c1b14"],
+Cell[8886, 241, 2240, 40, 360, 456, 10, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"2180cf1c-0eac-46f5-90ba-95409523d6ea"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
