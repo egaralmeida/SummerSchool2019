@@ -1,0 +1,211 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      7552,        203]
+NotebookOptionsPosition[      5561,        163]
+NotebookOutlinePosition[      5935,        179]
+CellTagsIndexPosition[      5892,        176]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Arduino PWM", "Title",
+ CellChangeTimes->{{3.770565216355117*^9, 3.770565218423806*^9}, {
+  3.770566905799094*^9, 
+  3.7705669073229322`*^9}},ExpressionUUID->"6dcf92f0-ac26-44fb-9191-\
+29672b8fec18"],
+
+Cell["Playing with Device Connection", "Subtitle",
+ CellChangeTimes->{{3.770565220561616*^9, 3.7705652501490345`*^9}, {
+  3.7705669135567255`*^9, 
+  3.7705669394821267`*^9}},ExpressionUUID->"4827135c-0825-450a-8d8c-\
+e03c1743e50a"],
+
+Cell[CellGroupData[{
+
+Cell["Open the Device", "Section",
+ CellChangeTimes->{{3.7705653370366344`*^9, 
+  3.7705653414985547`*^9}},ExpressionUUID->"3253f278-0713-46d1-b0dc-\
+b9f01ef5b356"],
+
+Cell["\<\
+Connect your Arduino UNO to the USB port and then check out the following \
+line of code:\
+\>", "Text",
+ CellChangeTimes->{{3.7705653514225187`*^9, 3.7705653636597176`*^9}, {
+  3.7705656495529923`*^9, 
+  3.770565694561515*^9}},ExpressionUUID->"b34667c0-58a4-4b22-ba63-\
+8b7eb8e7fe64"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"arduino", "=", 
+   RowBox[{"DeviceOpen", "[", 
+    RowBox[{"\"\<Arduino\>\"", ",", "\"\<COM3\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.770566886375607*^9, 
+  3.7705668863781333`*^9}},ExpressionUUID->"4c922498-ff42-4261-ba31-\
+5826659e06d8"],
+
+Cell["\<\
+What this does is open a connection for Serial Communication on the COM3 of a \
+Windows machine. \[OpenCurlyDoubleQuote]COM\[CloseCurlyDoubleQuote] is the \
+name in Windows for a Serial Communications port, which is what we need to \
+use in order to upload programs (Sketches in the Arduino jargon) and \
+send/receive information to and from the Arduino board.
+
+If you didn\[CloseCurlyQuote]t already, go ahead and evaluate that expression.\
+\>", "Text",
+ CellChangeTimes->{{3.770565369490287*^9, 3.7705655113690042`*^9}, {
+  3.7705655689387217`*^9, 3.770565731977007*^9}, {3.770565830244458*^9, 
+  3.7705658328825603`*^9}},ExpressionUUID->"a06794b2-6a18-417d-8b52-\
+430d4aecad1c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Let\[CloseCurlyQuote]s PWM", "Section",
+ CellChangeTimes->{{3.7705658349645495`*^9, 
+  3.7705658471992626`*^9}},ExpressionUUID->"858c9a0a-55f1-4979-86cb-\
+9a0356c9eae7"],
+
+Cell["\<\
+In Mathematica, there are several ways to tell the Arduino how you want it to \
+output a PWM signal. Let\[CloseCurlyQuote]s take a look.\
+\>", "Text",
+ CellChangeTimes->{{3.770565981732845*^9, 3.7705660411530404`*^9}, {
+  3.770566791587268*^9, 
+  3.7705667918746448`*^9}},ExpressionUUID->"c7594105-a691-4ba3-9db3-\
+5d733a043419"],
+
+Cell[CellGroupData[{
+
+Cell["Through Duty Cycle", "Subsubsection",
+ CellChangeTimes->{{3.77056611619624*^9, 
+  3.7705661223584323`*^9}},ExpressionUUID->"8e575171-7e62-446e-ae4f-\
+e3a0efee61d8"],
+
+Cell[BoxData[
+ RowBox[{"DeviceWrite", "[", 
+  RowBox[{"arduino", ",", 
+   RowBox[{"3", "\[Rule]", 
+    RowBox[{"128", "/", "255"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.770566141358547*^9, 3.7705661413619785`*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"51b36884-fd07-4991-baa6-8ae10590b84c"],
+
+Cell["\<\
+The DeviceWrite function is what we are going to use to send data to the \
+Arduino. In this case, we are sending data to Digital Pin 3. What we are \
+sending is a command to tell the Arduino to create a 50% duty cycle wave. 
+
+In Arduino code, we would write\
+\>", "Text",
+ CellChangeTimes->{{3.7705662366424813`*^9, 
+  3.770566385512274*^9}},ExpressionUUID->"3ad8906b-4688-4c81-9765-\
+a9adceb34f72"],
+
+Cell["analogWrite(3, 128);", "ExternalLanguage",
+ CellChangeTimes->{{3.770566398463597*^9, 
+  3.770566420538102*^9}},ExpressionUUID->"0cd286e0-dc66-4c02-8355-\
+f2cf72e54334"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Through Average Voltage", "Subsection",
+ CellChangeTimes->{{3.770566667990906*^9, 
+  3.770566678053337*^9}},ExpressionUUID->"ffe1e79d-e77b-4b8f-ae5a-\
+43c1ce3fc37e"],
+
+Cell["\<\
+Another way to output this same data in Mathematica would be to use the \
+following expression:\
+\>", "Text",
+ CellChangeTimes->{{3.7705664247743*^9, 3.770566452759161*^9}, {
+  3.770566688488609*^9, 
+  3.770566696951363*^9}},ExpressionUUID->"abb433f8-4c28-4d1e-a383-\
+f6fc99f92c2e"],
+
+Cell[BoxData[
+ RowBox[{"DeviceWrite", "[", 
+  RowBox[{"arduino", ",", 
+   RowBox[{"3", "\[Rule]", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"2.5", ",", "\"\<Volts\>\""}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7705664699740868`*^9, 3.7705664699770403`*^9}, {
+  3.770566625324583*^9, 3.7705666254238687`*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"39b78bfe-b2df-4f5b-991e-3df707ab7a21"],
+
+Cell["\<\
+In this case, we are telling the Arduino that we want the same thing as \
+before, a 50% duty cycle wave, but we are expressing it as the average \
+voltage the Digital Pin 3 would be outputting.  Handy!\
+\>", "Text",
+ CellChangeTimes->{{3.7705664810817575`*^9, 3.770566614607789*^9}, {
+  3.770566825332692*^9, 
+  3.7705668259183264`*^9}},ExpressionUUID->"b477d6f3-213b-4c61-b36b-\
+c8cd6a2d50c9"],
+
+Cell["", "Text",ExpressionUUID->"3a33fa38-02cc-4baa-b93e-ed9cb7dfa706"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.3 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 205, 4, 126, "Title",ExpressionUUID->"6dcf92f0-ac26-44fb-9191-29672b8fec18"],
+Cell[791, 28, 231, 4, 68, "Subtitle",ExpressionUUID->"4827135c-0825-450a-8d8c-e03c1743e50a"],
+Cell[CellGroupData[{
+Cell[1047, 36, 164, 3, 84, "Section",ExpressionUUID->"3253f278-0713-46d1-b0dc-b9f01ef5b356"],
+Cell[1214, 41, 294, 7, 44, "Text",ExpressionUUID->"b34667c0-58a4-4b22-ba63-8b7eb8e7fe64"],
+Cell[1511, 50, 289, 7, 37, "Input",ExpressionUUID->"4c922498-ff42-4261-ba31-5826659e06d8"],
+Cell[1803, 59, 691, 12, 131, "Text",ExpressionUUID->"a06794b2-6a18-417d-8b52-430d4aecad1c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2531, 76, 175, 3, 84, "Section",ExpressionUUID->"858c9a0a-55f1-4979-86cb-9a0356c9eae7"],
+Cell[2709, 81, 339, 7, 44, "Text",ExpressionUUID->"c7594105-a691-4ba3-9db3-5d733a043419"],
+Cell[CellGroupData[{
+Cell[3073, 92, 170, 3, 58, "Subsubsection",ExpressionUUID->"8e575171-7e62-446e-ae4f-e3a0efee61d8"],
+Cell[3246, 97, 299, 6, 37, "Input",ExpressionUUID->"51b36884-fd07-4991-baa6-8ae10590b84c"],
+Cell[3548, 105, 409, 9, 131, "Text",ExpressionUUID->"3ad8906b-4688-4c81-9765-a9adceb34f72"],
+Cell[3960, 116, 174, 3, 61, "ExternalLanguage",ExpressionUUID->"0cd286e0-dc66-4c02-8355-f2cf72e54334"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4171, 124, 171, 3, 69, "Subsection",ExpressionUUID->"ffe1e79d-e77b-4b8f-ae5a-43c1ce3fc37e"],
+Cell[4345, 129, 292, 7, 44, "Text",ExpressionUUID->"abb433f8-4c28-4d1e-a383-f6fc99f92c2e"],
+Cell[4640, 138, 400, 8, 37, "Input",ExpressionUUID->"39b78bfe-b2df-4f5b-991e-3df707ab7a21"],
+Cell[5043, 148, 404, 8, 44, "Text",ExpressionUUID->"b477d6f3-213b-4c61-b36b-c8cd6a2d50c9"],
+Cell[5450, 158, 71, 0, 44, "Text",ExpressionUUID->"3a33fa38-02cc-4baa-b93e-ed9cb7dfa706"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
