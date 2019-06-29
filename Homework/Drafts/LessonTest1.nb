@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     36048,        779]
-NotebookOptionsPosition[     32024,        704]
-NotebookOutlinePosition[     32398,        720]
-CellTagsIndexPosition[     32355,        717]
+NotebookDataLength[     38370,        832]
+NotebookOptionsPosition[     34211,        754]
+NotebookOutlinePosition[     34585,        770]
+CellTagsIndexPosition[     34542,        767]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -484,7 +484,14 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"\"\<time\>\"", ",", " ", "\"\<Voltage\>\""}], "}"}]}], ",", 
      " ", 
-     RowBox[{"FillingStyle", "\[Rule]", "Bottom"}]}], "]"}], ",", " ", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"Inset", "[", 
+       RowBox[{"Framed", "[", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"IntegerPart", "[", "frequency", "]"}], "\"\<Hz\>\""}], 
+          ",", "20"}], "]"}], "]"}], "]"}]}]}], "]"}], ",", " ", 
    "\[IndentingNewLine]", 
    RowBox[{"{", 
     RowBox[{"frequency", ",", " ", "1", ",", " ", "10"}], "}"}], ",", 
@@ -496,23 +503,23 @@ Cell[BoxData[
   3.770723085859603*^9, 3.770723192867752*^9}, {3.7707236756715984`*^9, 
   3.7707237054820175`*^9}, {3.770727272564731*^9, 3.770727292303606*^9}, {
   3.7707410362975416`*^9, 3.7707410473527174`*^9}, {3.7707434971153045`*^9, 
-  3.770743516182973*^9}},
- CellLabel->"In[24]:=",ExpressionUUID->"fd0784cb-ca99-47cd-985b-c17e0067bbe2"],
+  3.770743516182973*^9}, {3.7707554127439394`*^9, 3.7707554870667157`*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"fd0784cb-ca99-47cd-985b-c17e0067bbe2"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`frequency$$ = 1., Typeset`show$$ = True, 
+   DynamicModuleBox[{$CellContext`frequency$$ = 5.22, Typeset`show$$ = True, 
     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`frequency$$], 1, 10}}, Typeset`size$$ = {
     468., {142., 148.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`frequency$81615$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`frequency$139502$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`frequency$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`frequency$$, $CellContext`frequency$81615$$, 0]}, 
+        Hold[$CellContext`frequency$$, $CellContext`frequency$139502$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -521,7 +528,9 @@ Cell[BoxData[
           
           SquareWave[$CellContext`n $CellContext`frequency$$]], \
 {$CellContext`n, 0, 4}, ExclusionsStyle -> Automatic, 
-        AxesLabel -> {"time", "Voltage"}, FillingStyle -> Bottom], 
+        AxesLabel -> {"time", "Voltage"}, Epilog -> Inset[
+          Framed[
+           Style[IntegerPart[$CellContext`frequency$$] "Hz", 20]]]], 
       "Specifications" :> {{$CellContext`frequency$$, 1, 10}}, 
       "Options" :> {AppearanceElements -> None}, "DefaultOptions" :> {}],
      ImageSizeCache->{531., {187., 195.}},
@@ -541,8 +550,9 @@ Cell[BoxData[
    3.770723022189528*^9, 3.770723146325079*^9, 3.7707231854742136`*^9, 
    3.7707237068041997`*^9, 3.7707255126636147`*^9, {3.7707272757217426`*^9, 
    3.77072729331369*^9}, {3.77074103732704*^9, 3.770741047708686*^9}, {
-   3.7707435009637423`*^9, 3.7707435194318237`*^9}},
- CellLabel->"Out[24]=",ExpressionUUID->"132e87f6-81e6-431e-b65c-ba8c5c1ea7a6"]
+   3.7707435009637423`*^9, 3.7707435194318237`*^9}, {3.7707554393601785`*^9, 
+   3.770755505013652*^9}},
+ CellLabel->"Out[44]=",ExpressionUUID->"a0cec79e-5fa8-4749-87bf-4bf06e1fb7ce"]
 }, Open  ]]
 }, Open  ]],
 
@@ -610,32 +620,45 @@ Cell[BoxData[
      RowBox[{"ExclusionsStyle", "\[Rule]", " ", "Automatic"}], ",", " ", 
      RowBox[{"AxesLabel", "\[Rule]", 
       RowBox[{"{", 
-       RowBox[{"\"\<time\>\"", ",", " ", "\"\<Voltage\>\""}], "}"}]}]}], 
-    "\[IndentingNewLine]", "]"}], ",", " ", 
+       RowBox[{"\"\<time\>\"", ",", " ", "\"\<Voltage\>\""}], "}"}]}], ",", 
+     " ", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"Inset", "[", 
+       RowBox[{"Framed", "[", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"IntegerPart", "[", 
+            RowBox[{"dutyCycle", "*", 
+             RowBox[{"100", "/", "1"}]}], "]"}], "\"\<%\>\""}], ",", "20"}], 
+         "]"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", " ", 
    RowBox[{"{", 
-    RowBox[{"dutyCycle", ",", " ", "0.1", ",", " ", "0.9"}], "}"}], ",", " ", 
+    RowBox[{"dutyCycle", ",", " ", "0.01", ",", " ", "0.9"}], "}"}], ",", " ", 
    RowBox[{"AppearanceElements", "\[Rule]", "None"}]}], " ", "]"}]], "Input",
  CellChangeTimes->{{3.770740089491503*^9, 3.770740129560753*^9}, {
   3.770740211631663*^9, 3.7707403537304397`*^9}, {3.7707403873186913`*^9, 
   3.770740448627019*^9}, {3.7707405122077503`*^9, 3.7707405323232956`*^9}, {
   3.770743202156537*^9, 3.770743259177841*^9}, {3.770743478767914*^9, 
-  3.7707434809856186`*^9}},
- CellLabel->"In[22]:=",ExpressionUUID->"91aca090-6964-4c4b-b650-c8fd8aee33d4"],
+  3.7707434809856186`*^9}, {3.7707548573600416`*^9, 3.770754951818612*^9}, {
+  3.7707550206376743`*^9, 3.770755094428837*^9}, {3.7707551341375*^9, 
+  3.7707551351184387`*^9}, {3.7707551744224653`*^9, 3.7707551997211485`*^9}, {
+  3.770755341673984*^9, 3.7707553451971765`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"91aca090-6964-4c4b-b650-c8fd8aee33d4"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`dutyCycle$$ = 0.20600000000000002`, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`dutyCycle$$], 0.1, 0.9}}, Typeset`size$$ = {
+   DynamicModuleBox[{$CellContext`dutyCycle$$ = 0.167, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`dutyCycle$$], 0.01, 0.9}}, Typeset`size$$ = {
     468., {142., 148.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`dutyCycle$80912$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`dutyCycle$128487$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, "Variables" :> {$CellContext`dutyCycle$$ = 0.1}, 
+     1, StandardForm, "Variables" :> {$CellContext`dutyCycle$$ = 0.01}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`dutyCycle$$, $CellContext`dutyCycle$80912$$, 0]}, 
+        Hold[$CellContext`dutyCycle$$, $CellContext`dutyCycle$128487$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -643,8 +666,11 @@ Cell[BoxData[
          Typeset`skipInitDone$$}, "Body" :> Plot[
         $CellContext`pulse[
         2, $CellContext`dutyCycle$$, 5, $CellContext`t], {$CellContext`t, 0, 
-         5}, ExclusionsStyle -> Automatic, AxesLabel -> {"time", "Voltage"}], 
-      "Specifications" :> {{$CellContext`dutyCycle$$, 0.1, 0.9}}, 
+         5}, ExclusionsStyle -> Automatic, AxesLabel -> {"time", "Voltage"}, 
+        Epilog -> Inset[
+          Framed[
+           Style[IntegerPart[$CellContext`dutyCycle$$ (100/1)] "%", 20]]]], 
+      "Specifications" :> {{$CellContext`dutyCycle$$, 0.01, 0.9}}, 
       "Options" :> {AppearanceElements -> None}, "DefaultOptions" :> {}],
      ImageSizeCache->{531., {187., 195.}},
      SingleEvaluation->True],
@@ -658,8 +684,12 @@ Cell[BoxData[
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.770743215568903*^9, 3.7707432527990665`*^9}, 
-   3.77074348188069*^9},
- CellLabel->"Out[22]=",ExpressionUUID->"61566108-8aa6-41be-b0f3-b6f8b19ff6c7"]
+   3.77074348188069*^9, {3.770743818336201*^9, 3.7707438287143917`*^9}, {
+   3.7707546364677467`*^9, 3.7707546602947445`*^9}, {3.7707549267885475`*^9, 
+   3.77075495224492*^9}, {3.770755053371733*^9, 3.770755094979458*^9}, 
+   3.770755135747732*^9, {3.770755180045315*^9, 3.770755202312169*^9}, 
+   3.770755346153512*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"731f7b50-4c22-4eeb-8b52-d01f8aa87ff9"]
 }, Open  ]],
 
 Cell["\<\
@@ -690,9 +720,29 @@ dimming effect\[LineSeparator]\t}
 \>", "CodeText",
  CellChangeTimes->{{3.7707425411046567`*^9, 
   3.7707428330679817`*^9}},ExpressionUUID->"f3178be4-22ed-4211-a2bd-\
-3a1a10726206"],
+3a1a10726206"]
+}, Open  ]],
 
-Cell["", "Text",ExpressionUUID->"b730ca64-d07c-42a8-80c8-ab7f55d4b48b"],
+Cell[CellGroupData[{
+
+Cell["Final Thoughts", "Subsection",
+ CellChangeTimes->{{3.77075606375527*^9, 
+  3.770756069260294*^9}},ExpressionUUID->"709041af-cc84-4c9a-a8b5-\
+38bf1301624f"],
+
+Cell["\<\
+With this technique you can control motors, light sources, speakers, \
+peltier-cells, resistor-based heaters and more. Alternating the width in \
+different periods can also be used as a means of communication (i.e. to \
+control the angle of a hobby-servo motor), or you can feed an h-bridge to \
+alter the speed of a dc or stepper motors.
+This technique is also used in switching power supplies such as buck \
+converters and boost converters.\
+\>", "Text",
+ CellChangeTimes->{
+  3.770756117394334*^9, {3.7707561829495234`*^9, 
+   3.7707563806480703`*^9}},ExpressionUUID->"88cb98ea-6aa8-458c-ba87-\
+75ff9aeabe05"],
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.770739884068511*^9, 
@@ -761,23 +811,26 @@ Cell[18885, 419, 555, 13, 181, "CodeText",ExpressionUUID->"33f3701b-692b-4c89-86
 Cell[19443, 434, 2058, 32, 131, "Text",ExpressionUUID->"f8c6beb2-5ccb-466f-823d-f263194b50cd",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[21526, 470, 1424, 29, 138, "Input",ExpressionUUID->"fd0784cb-ca99-47cd-985b-c17e0067bbe2"],
-Cell[22953, 501, 2361, 43, 407, "Output",ExpressionUUID->"132e87f6-81e6-431e-b65c-ba8c5c1ea7a6"]
+Cell[21526, 470, 1707, 36, 138, "Input",ExpressionUUID->"fd0784cb-ca99-47cd-985b-c17e0067bbe2"],
+Cell[23236, 508, 2496, 46, 407, "Output",ExpressionUUID->"a0cec79e-5fa8-4749-87bf-4bf06e1fb7ce"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25363, 550, 794, 11, 69, "Subsection",ExpressionUUID->"f7e155bc-4739-43c7-8f34-48838d16759b"],
-Cell[26160, 563, 377, 7, 44, "Text",ExpressionUUID->"aad95067-14f3-409a-86ba-eca087025adc"],
-Cell[26540, 572, 452, 13, 37, "Input",ExpressionUUID->"4b8e4d01-f202-4712-9105-33b065bc7249"],
-Cell[26995, 587, 368, 9, 37, "Input",ExpressionUUID->"7565d26c-85c5-43e4-ae1e-62f2ccef5778"],
+Cell[25781, 560, 794, 11, 69, "Subsection",ExpressionUUID->"f7e155bc-4739-43c7-8f34-48838d16759b"],
+Cell[26578, 573, 377, 7, 44, "Text",ExpressionUUID->"aad95067-14f3-409a-86ba-eca087025adc"],
+Cell[26958, 582, 452, 13, 37, "Input",ExpressionUUID->"4b8e4d01-f202-4712-9105-33b065bc7249"],
+Cell[27413, 597, 368, 9, 37, "Input",ExpressionUUID->"7565d26c-85c5-43e4-ae1e-62f2ccef5778"],
 Cell[CellGroupData[{
-Cell[27388, 600, 1132, 22, 113, "Input",ExpressionUUID->"91aca090-6964-4c4b-b650-c8fd8aee33d4"],
-Cell[28523, 624, 1956, 37, 407, "Output",ExpressionUUID->"61566108-8aa6-41be-b0f3-b6f8b19ff6c7"]
+Cell[27806, 610, 1746, 35, 113, "Input",ExpressionUUID->"91aca090-6964-4c4b-b650-c8fd8aee33d4"],
+Cell[29555, 647, 2362, 44, 407, "Output",ExpressionUUID->"731f7b50-4c22-4eeb-8b52-d01f8aa87ff9"]
 }, Open  ]],
-Cell[30494, 664, 772, 14, 131, "Text",ExpressionUUID->"4dcfed44-df8e-4de6-91b7-cc0aab194f9e"],
-Cell[31269, 680, 486, 12, 181, "CodeText",ExpressionUUID->"f3178be4-22ed-4211-a2bd-3a1a10726206"],
-Cell[31758, 694, 71, 0, 44, "Text",ExpressionUUID->"b730ca64-d07c-42a8-80c8-ab7f55d4b48b"],
-Cell[31832, 696, 152, 3, 37, "Input",ExpressionUUID->"401e6983-9130-4818-9524-c1fa797d9d84"]
+Cell[31932, 694, 772, 14, 131, "Text",ExpressionUUID->"4dcfed44-df8e-4de6-91b7-cc0aab194f9e"],
+Cell[32707, 710, 486, 12, 181, "CodeText",ExpressionUUID->"f3178be4-22ed-4211-a2bd-3a1a10726206"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33230, 727, 161, 3, 69, "Subsection",ExpressionUUID->"709041af-cc84-4c9a-a8b5-38bf1301624f"],
+Cell[33394, 732, 622, 12, 102, "Text",ExpressionUUID->"88cb98ea-6aa8-458c-ba87-75ff9aeabe05"],
+Cell[34019, 746, 152, 3, 37, "Input",ExpressionUUID->"401e6983-9130-4818-9524-c1fa797d9d84"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
