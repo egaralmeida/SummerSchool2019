@@ -1,0 +1,302 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     12477,        294]
+NotebookOptionsPosition[      9346,        238]
+NotebookOutlinePosition[      9718,        254]
+CellTagsIndexPosition[      9675,        251]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Lesson Plan", "Title",
+ CellChangeTimes->{{3.770977918693613*^9, 
+  3.7709779220145683`*^9}},ExpressionUUID->"aa0f72af-6abe-402e-951b-\
+46783295d6fc"],
+
+Cell["Mathematica for Arduino", "Subtitle",
+ CellChangeTimes->{{3.7709779267606444`*^9, 
+  3.770977938605385*^9}},ExpressionUUID->"76da434b-3b43-4cd7-85bb-\
+55630b9e8f33"],
+
+Cell[CellGroupData[{
+
+Cell["Components", "Chapter",
+ CellChangeTimes->{{3.77097794298446*^9, 3.770977946870875*^9}, {
+  3.770977986560324*^9, 
+  3.7709779946144185`*^9}},ExpressionUUID->"6cf65434-5a73-4680-85af-\
+4e3bf2389376"],
+
+Cell[CellGroupData[{
+
+Cell["Servomotor", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 
+  3.7709780061429896`*^9}},ExpressionUUID->"79cbede7-740f-4b77-b7a4-\
+c82d5bce5ed1"],
+
+Cell["Pressure sensor", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 
+  3.7709781728858852`*^9}},ExpressionUUID->"d9aecff0-72ad-4eb9-913c-\
+900951da8d6c"],
+
+Cell["Stepper Motor (missing driver)", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.770978516697014*^9}},ExpressionUUID->"fb914b1d-0366-4f55-a811-\
+c67b619484c9"],
+
+Cell["BME 280", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785837646217`*^9}, {
+  3.770996690521858*^9, 
+  3.770996694960313*^9}},ExpressionUUID->"7688ed60-6660-4bb4-9562-\
+2142cb05d868"],
+
+Cell["LED (PWM)", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 
+  3.770996598055051*^9}},ExpressionUUID->"fa42bd3e-c0f7-4c75-8e58-\
+e465744a4ec0"],
+
+Cell["Piezo", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.7709966109785175`*^9}, {3.7709966827092876`*^9, 
+  3.77099668585925*^9}},ExpressionUUID->"9ba08721-48b8-4900-ae8a-\
+f0994330e658"],
+
+Cell["OLED Display", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.770996809125708*^9, 
+  3.77099680912687*^9}},ExpressionUUID->"cb022da3-3989-44c4-9ae6-\
+b573fd69ade6"],
+
+Cell["Encoder (not available)", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.7709968095085263`*^9, 
+  3.770996835367978*^9}},ExpressionUUID->"a31b80c0-59c4-4ad2-abcd-\
+85a80c30f951"],
+
+Cell["Ultrasonic distance sensor", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.7709968095085263`*^9, 3.770996847683199*^9}, {
+  3.7709979857607927`*^9, 
+  3.770997985762287*^9}},ExpressionUUID->"746e84df-21d1-4451-958f-\
+ef595f61c0fa"],
+
+Cell["Button", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.7709968095085263`*^9, 3.770996847683199*^9}, {
+  3.7709979863133717`*^9, 
+  3.7709979871668367`*^9}},ExpressionUUID->"6fd6dfbc-c902-430f-900f-\
+87ccbf6e9f34"],
+
+Cell["LED", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.7709968095085263`*^9, 3.770996847683199*^9}, {
+  3.7709979863133717`*^9, 
+  3.770997993889239*^9}},ExpressionUUID->"e5027e22-38ff-410f-a05d-\
+49d84c9af215"],
+
+Cell["Resistors", "Item",
+ CellChangeTimes->{{3.7709779790058956`*^9, 3.770978005666289*^9}, {
+  3.770978169442268*^9, 3.770978172534876*^9}, {3.7709785070003586`*^9, 
+  3.7709785162090135`*^9}, {3.7709785663472443`*^9, 3.7709785825544024`*^9}, {
+  3.770996592866903*^9, 3.770996610656109*^9}, {3.7709966993345847`*^9, 
+  3.7709967012428904`*^9}, {3.7709968095085263`*^9, 3.770996847683199*^9}, {
+  3.7709979863133717`*^9, 
+  3.7709979954853354`*^9}},ExpressionUUID->"6106f65c-8246-4175-a06b-\
+6b0637028793"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Topics", "Chapter",
+ CellChangeTimes->{{3.7709967225538783`*^9, 3.7709967298686237`*^9}, {
+  3.7709968947037706`*^9, 
+  3.7709968979129653`*^9}},ExpressionUUID->"da69123f-6e15-41f1-a4fa-\
+c926f65e030e"],
+
+Cell[CellGroupData[{
+
+Cell["Execute a function in Arduino", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.770996803959374*^9}, {
+  3.770996885905388*^9, 
+  3.770996914995462*^9}},ExpressionUUID->"a9133be7-e97f-4750-91bd-\
+1321251c33a5"],
+
+Cell["Voltage Divider", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996865787628*^9}, {3.770997936786932*^9, 
+  3.7709979367896433`*^9}},ExpressionUUID->"2f8720eb-3d64-434d-823d-\
+3bbe56bd8552"],
+
+Cell["PWM", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996867194171*^9}, {3.7709969212286663`*^9, 
+  3.7709969212321167`*^9}},ExpressionUUID->"879f72ce-4a9c-436f-a8e3-\
+99ae03f865cc"],
+
+Cell["Color Picker to RGB LED", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996867194171*^9}, {3.77099705224848*^9, 
+  3.7709970672755404`*^9}},ExpressionUUID->"d642534f-9db8-4c5d-93f4-\
+74db8917ca23"],
+
+Cell["Control a servomotor", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996867194171*^9}, {3.77099705224848*^9, 
+  3.770997066341107*^9}, {3.7709980016842413`*^9, 
+  3.770998014846753*^9}},ExpressionUUID->"74677467-732d-424e-b3bc-\
+0b2541df325f"],
+
+Cell["Sound", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996867194171*^9}, {3.77099705224848*^9, 
+  3.770997066341107*^9}, {3.7709980016842413`*^9, 
+  3.770998025832923*^9}},ExpressionUUID->"650ae42b-7bb6-4f79-a381-\
+1883028d326e"],
+
+Cell["Read analog sensor as voltage and make calculations", "Item",
+ CellChangeTimes->{{3.7709967321865253`*^9, 3.7709968021612525`*^9}, {
+  3.7709968637294765`*^9, 3.770996867194171*^9}, {3.77099705224848*^9, 
+  3.770997066341107*^9}, {3.7709980016842413`*^9, 3.7709980254599137`*^9}, {
+  3.7709996665176344`*^9, 3.77099970845218*^9}, {3.77100132533066*^9, 
+  3.7710013255636373`*^9}},ExpressionUUID->"833006ad-48af-4a06-849b-\
+c6fff4294493"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Lesson Ideas", "Chapter",
+ CellChangeTimes->{{3.7710013305452466`*^9, 
+  3.7710013400343733`*^9}},ExpressionUUID->"6b57a939-2dc7-40fc-8b13-\
+0a9087d587e2"],
+
+Cell[CellGroupData[{
+
+Cell["Ohm\[CloseCurlyQuote]s law", "Item",
+ CellChangeTimes->{{3.771001342894268*^9, 
+  3.7710013567888575`*^9}},ExpressionUUID->"29caa537-a055-4a8e-b294-\
+1a59731f4c82"],
+
+Cell["Play with a resistor and an LED", "Subitem",
+ CellChangeTimes->{{3.771001342894268*^9, 
+  3.7710013641755233`*^9}},ExpressionUUID->"9ac72ea0-27c8-4737-a899-\
+411766f5d41a"],
+
+Cell["Voltage divider", "Item",
+ CellChangeTimes->{{3.771001342894268*^9, 
+  3.771001380638958*^9}},ExpressionUUID->"cc522a1e-d084-42a6-8e34-\
+bea17cc8210c"],
+
+Cell["Transistor", "Item",
+ CellChangeTimes->{{3.771001342894268*^9, 
+  3.7710013860258245`*^9}},ExpressionUUID->"8e509ad6-db00-48ab-981a-\
+e58cacfc4177"],
+
+Cell["", "Item",
+ CellChangeTimes->{{3.771001342894268*^9, 
+  3.7710013851702957`*^9}},ExpressionUUID->"92714459-374a-4100-9c5f-\
+45b11e9c8033"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1904, 997},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.4 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 156, 3, 135, "Title",ExpressionUUID->"aa0f72af-6abe-402e-951b-46783295d6fc"],
+Cell[742, 27, 171, 3, 73, "Subtitle",ExpressionUUID->"76da434b-3b43-4cd7-85bb-55630b9e8f33"],
+Cell[CellGroupData[{
+Cell[938, 34, 205, 4, 95, "Chapter",ExpressionUUID->"6cf65434-5a73-4680-85af-4e3bf2389376"],
+Cell[CellGroupData[{
+Cell[1168, 42, 156, 3, 44, "Item",ExpressionUUID->"79cbede7-740f-4b77-b7a4-c82d5bce5ed1"],
+Cell[1327, 47, 210, 4, 44, "Item",ExpressionUUID->"d9aecff0-72ad-4eb9-913c-900951da8d6c"],
+Cell[1540, 53, 271, 4, 44, "Item",ExpressionUUID->"fb914b1d-0366-4f55-a811-c67b619484c9"],
+Cell[1814, 59, 352, 6, 44, "Item",ExpressionUUID->"7688ed60-6660-4bb4-9562-2142cb05d868"],
+Cell[2169, 67, 354, 6, 44, "Item",ExpressionUUID->"fa42bd3e-c0f7-4c75-8e58-e465744a4ec0"],
+Cell[2526, 75, 399, 6, 44, "Item",ExpressionUUID->"9ba08721-48b8-4900-ae8a-f0994330e658"],
+Cell[2928, 83, 455, 7, 44, "Item",ExpressionUUID->"cb022da3-3989-44c4-9ae6-b573fd69ade6"],
+Cell[3386, 92, 469, 7, 44, "Item",ExpressionUUID->"a31b80c0-59c4-4ad2-abcd-85a80c30f951"],
+Cell[3858, 101, 523, 8, 44, "Item",ExpressionUUID->"746e84df-21d1-4451-958f-ef595f61c0fa"],
+Cell[4384, 111, 505, 8, 44, "Item",ExpressionUUID->"6fd6dfbc-c902-430f-900f-87ccbf6e9f34"],
+Cell[4892, 121, 500, 8, 44, "Item",ExpressionUUID->"e5027e22-38ff-410f-a05d-49d84c9af215"],
+Cell[5395, 131, 508, 8, 44, "Item",ExpressionUUID->"6106f65c-8246-4175-a06b-6b0637028793"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5952, 145, 208, 4, 95, "Chapter",ExpressionUUID->"da69123f-6e15-41f1-a4fa-c926f65e030e"],
+Cell[CellGroupData[{
+Cell[6185, 153, 222, 4, 44, "Item",ExpressionUUID->"a9133be7-e97f-4750-91bd-1321251c33a5"],
+Cell[6410, 159, 260, 4, 44, "Item",ExpressionUUID->"2f8720eb-3d64-434d-823d-3bbe56bd8552"],
+Cell[6673, 165, 250, 4, 44, "Item",ExpressionUUID->"879f72ce-4a9c-436f-a8e3-99ae03f865cc"],
+Cell[6926, 171, 267, 4, 44, "Item",ExpressionUUID->"d642534f-9db8-4c5d-93f4-74db8917ca23"],
+Cell[7196, 177, 313, 5, 44, "Item",ExpressionUUID->"74677467-732d-424e-b3bc-0b2541df325f"],
+Cell[7512, 184, 298, 5, 44, "Item",ExpressionUUID->"650ae42b-7bb6-4f79-a381-1883028d326e"],
+Cell[7813, 191, 443, 6, 44, "Item",ExpressionUUID->"833006ad-48af-4a06-849b-c6fff4294493"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8305, 203, 161, 3, 95, "Chapter",ExpressionUUID->"6b57a939-2dc7-40fc-8b13-0a9087d587e2"],
+Cell[CellGroupData[{
+Cell[8491, 210, 170, 3, 44, "Item",ExpressionUUID->"29caa537-a055-4a8e-b294-1a59731f4c82"],
+Cell[8664, 215, 178, 3, 37, "Subitem",ExpressionUUID->"9ac72ea0-27c8-4737-a899-411766f5d41a"],
+Cell[8845, 220, 157, 3, 44, "Item",ExpressionUUID->"cc522a1e-d084-42a6-8e34-bea17cc8210c"],
+Cell[9005, 225, 154, 3, 44, "Item",ExpressionUUID->"8e509ad6-db00-48ab-981a-e58cacfc4177"],
+Cell[9162, 230, 144, 3, 44, "Item",ExpressionUUID->"92714459-374a-4100-9c5f-45b11e9c8033"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
