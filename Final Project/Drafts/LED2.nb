@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     39503,        930]
-NotebookOptionsPosition[     37466,        889]
-NotebookOutlinePosition[     37840,        905]
-CellTagsIndexPosition[     37797,        902]
+NotebookDataLength[     39506,        930]
+NotebookOptionsPosition[     37469,        889]
+NotebookOutlinePosition[     37843,        905]
+CellTagsIndexPosition[     37800,        902]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -833,7 +833,7 @@ Cell[BoxData[
     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`onOff$$], 0, 1, 1}}, Typeset`size$$ = {
-    132., {4., 13.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    487., {71., 77.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
     Typeset`skipInitDone$$ = True, $CellContext`onOff$84808$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`onOff$$ = 0}, 
@@ -855,7 +855,7 @@ Cell[BoxData[
         None, DefaultBaseStyle -> "Animate", DefaultLabelStyle -> 
         "AnimateLabel", SynchronousUpdating -> True, ShrinkingDelay -> 4.}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{492., {60., 68.}},
+     ImageSizeCache->{552., {123., 131.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -926,11 +926,11 @@ Cell[22161, 496, 11256, 303, 606, "Output",ExpressionUUID->"32a9049f-962b-4c17-9
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[33454, 804, 1304, 21, 40, "Input",ExpressionUUID->"662b7413-5ebe-447a-9d0f-09ee936220a1"],
-Cell[34761, 827, 2205, 43, 154, "Output",ExpressionUUID->"ebaedfe5-955e-44fe-8656-c083a14fac3f"]
+Cell[34761, 827, 2208, 43, 280, "Output",ExpressionUUID->"ebaedfe5-955e-44fe-8656-c083a14fac3f"]
 }, Open  ]],
-Cell[36981, 873, 153, 3, 40, "Input",ExpressionUUID->"db07b1ed-2839-4998-af7c-03f15ddc9d1c"],
-Cell[37137, 878, 154, 3, 40, "Input",ExpressionUUID->"ec9b448c-ac13-43f8-814d-5d5a1992e768"],
-Cell[37294, 883, 156, 3, 40, "Input",ExpressionUUID->"f059bd3f-28a2-4eb6-8c0a-d36473e3261a"]
+Cell[36984, 873, 153, 3, 40, "Input",ExpressionUUID->"db07b1ed-2839-4998-af7c-03f15ddc9d1c"],
+Cell[37140, 878, 154, 3, 40, "Input",ExpressionUUID->"ec9b448c-ac13-43f8-814d-5d5a1992e768"],
+Cell[37297, 883, 156, 3, 40, "Input",ExpressionUUID->"f059bd3f-28a2-4eb6-8c0a-d36473e3261a"]
 }, Open  ]]
 }
 ]
